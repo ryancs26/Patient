@@ -364,3 +364,26 @@ textarea{ min-height:150px; resize:vertical; }
 }
 .payment-card.selected .badge{ transform: scale(1); opacity:1; }
 .payment-label{ display:block; margin-top:10px; font-weight:700; color:#495061; font-size:.95rem; }
+
+/* Patient info lead paragraph - highlight */
+.patient-info__lead {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--text);
+  font-weight: 600;              /* bolden for emphasis */
+  background: rgba(14,123,134,0.06); /* soft teal highlight */
+  border-left: 4px solid var(--accent);
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+}
+
+/* Patient info bullet list - make more subtle */
+.patient-info__list li {
+  font-weight: 400;    /* normal weight */
+  color: #222;         /* keep readable but not as strong as lead */
+}
+
+.patient-info__list li::before {
+  background-color: var(--accent);
+  box-shadow: none;    /* cleaner dots */
+}
