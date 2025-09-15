@@ -220,40 +220,41 @@ textarea{ min-height:150px; resize:vertical; }
   max-width: 72ch;
 }
 
-/* Chevron bullet list (teal), sized like screenshot */
-.patient-info__list{
-  list-style:none;
-  padding:0;
+/* Patient Info List — styled dot points */
+.patient-info__list {
+  list-style: none !important;   /* removes browser default bullets */
   margin: .25rem 0 1.2rem;
-  display:grid;
+  padding: 0;
+  display: grid;
   gap: .9rem;
 }
 
-.patient-info__list li{
-  position:relative;
-  padding-left: 2.1rem;
-  line-height:1.55;
-  color:#0d0f12;
+.patient-info__list li {
+  position: relative;
+  padding-left: 2rem;            /* space for dot */
+  line-height: 1.55;
+  color: #0d0f12;
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
 }
 
-/* teal chevron marker */
-.patient-info__list li::before{
-  content:"";
-  position:absolute;
-  left:.25rem;
-  top:.45em;
-  width:1.05rem; height:1.05rem;
-  border-radius:10px;
-  background: radial-gradient(circle at 30% 30%, #fff 0 35%, transparent 36%), var(--accent);
-  box-shadow: 0 0 0 6px rgba(14,123,134,0.08);
-  /* carve chevron */
-  -webkit-mask:
-     conic-gradient(from -45deg at 55% 55%, #000 0 90deg, transparent 0),
-     radial-gradient(9px at 65% 60%, transparent 98%, #000);
-  mask:
-     conic-gradient(from -45deg at 55% 55%, #000 0 90deg, transparent 0),
-     radial-gradient(9px at 65% 60%, transparent 98%, #000);
+/* Teal dot */
+.patient-info__list li::before {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 0.7em;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background-color: var(--accent);   /* teal fill */
+  box-shadow: 0 0 0 3px rgba(14,123,134,0.1); /* subtle ring */
+  transition: transform .2s ease, background-color .25s ease;
+}
+
+/* UI hover effect */
+.patient-info__list li:hover::before {
+  transform: scale(1.2);
+  background-color: #06685e;        /* darker teal on hover */
 }
 
 /* supporting line */
