@@ -377,13 +377,24 @@ textarea{ min-height:150px; resize:vertical; }
   margin: 0 0 1.25rem;
 }
 
-/* Patient info bullet list - make more subtle */
-.patient-info__list li {
-  font-weight: 400;    /* normal weight */
-  color: #222;         /* keep readable but not as strong as lead */
+/* Patient info lead paragraph - bigger, not bold */
+.patient-info__lead {
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem); /* larger than bullets */
+  color: var(--text);
+  font-weight: 400;                          /* normal weight */
+  background: rgba(14,123,134,0.04);         /* soft teal background */
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  margin: 0 0 1.5rem;
+  line-height: 1.7;
 }
 
-.patient-info__list li::before {
-  background-color: var(--accent);
-  box-shadow: none;    /* cleaner dots */
+/* Patient info bullet list - keep slightly smaller */
+.patient-info__list li {
+  font-size: 1rem;        /* slightly smaller than lead */
+  font-weight: 400;
+  color: #222;
+  line-height: 1.55;
 }
+
