@@ -1,252 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inservio — For Patients</title>
-  <meta name="description" content="Information for patients receiving intravitreal injections. Inservio coordinates pharmacy dispensing and cold chain delivery to your clinic." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-:root{
-  --lime:#BEF21C;
-  --inv-teal:#098276;
-  --neutral:#aaabb1;
-  --accent:#C6FB41; /* used by payment cards */
-}
+  <title>Inservio</title>
 
-/* Base + Reset */
-*{ box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  color:#000;
-  font-size:20px;            /* base size = 20px */
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
-/* NAVBAR */
-.navbar{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 40px; background:#fff; flex-wrap:wrap; border-bottom:3px solid var(--lime);
-  gap:12px;
-}
-.brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px; }
-.brand .dot{ width:10px; height:10px; border-radius:999px; background:var(--inv-teal); display:inline-block; }
-.nav-links{ display:flex; flex-wrap:wrap; gap:16px; }
-.nav-links a{
-  text-decoration:none; font-weight:700; font-size:1rem; color:#000; /* 20px */
-  transition:color .25s;
-}
-.nav-links a:hover{ color:var(--lime); }
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" aria-label="Primary">
+    <div class="nav-logo">
+      <img src="Inservio-logo.svg" alt="Inservio logo" height="40" />
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Solutions</a>
+      <a href="#">Partners</a>
+    </div>
+  </nav>
 
-/* HERO */
-.hero{ position:relative; width:100%; height:72vh; min-height:420px; overflow:hidden; }
-.hero video{ width:100%; height:100%; object-fit:cover; display:block; }
-.hero::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.18); z-index:1; }
-.hero-inner{ position:absolute; inset:0; display:grid; place-items:center; z-index:2; padding:0 20px; }
-.hero-text{
-  text-align:center; color:#fff; line-height:1.3; max-width:60ch;
-  font-weight:700; letter-spacing:.2px; font-size:clamp(1.2rem,3.5vw,1.6rem); /* ~24–32px visual */
-  text-shadow:2px 2px 6px rgba(0,0,0,.45); opacity:0; transform:translateY(12px);
-  animation:fadeInUp .9s ease-out forwards .2s;
-}
-.hero-text .highlight{ color:var(--lime); }
-@keyframes fadeInUp{ to{ opacity:1; transform:translateY(0); } }
+  <!-- HERO VIDEO -->
+  <section class="hero" aria-label="Hero">
+    <video autoplay muted loop playsinline>
+      <source src="webvid1.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-inner">
+      <div class="hero-text">
+        Inservio delivers <span class="highlight">bespoke</span>, end-to-end solutions for the
+        <span class="highlight">pharmaceutical industry</span> and allied partners.
+      </div>
+    </div>
+  </section>
 
-/* CONTENT WRAPPER */
-.content--engaging{
-  background:linear-gradient(180deg,#fff 0%,#fafafa 100%);
-  border-radius:12px; padding:48px 24px; margin:32px auto; max-width:960px;
-}
-.copy{ max-width:900px; margin:0 auto; }
-.sub-heading{
-  font-size:1.1rem;        /* ~22px */
-  font-weight:600; color:var(--inv-teal);
-  margin:22px 0 10px;
-}
-.content--engaging p{
-  line-height:1.8;
-  font-size:1rem;          /* 20px body size */
-  color:#6d6e75;
-  margin:0 0 14px;
-}
+  <!-- ENGAGING CONTENT -->
+  <section class="content content--engaging" aria-label="What we do">
+    <div class="copy">
+      <h3 class="sub-heading">Cold Chain Expertise</h3>
+      <p>
+        We specialise in the delivery, monitoring, and secure storage of
+        <strong>high-cost, cold chain medications</strong> — ensuring product integrity
+        and <strong>compliance</strong> at every step.
+      </p>
 
-/* FEATURE LIST */
-.feature-list{ list-style:none; padding-left:0; margin:18px 0 6px; }
-.feature-list li{
-  display:grid;
-  grid-template-columns:16px 1fr;  /* fixed icon + flexible text */
-  column-gap:12px;
-  align-items:center;
-  margin-bottom:12px;
-  color:#6d6e75;
-  line-height:1.6;
-  font-size:1rem;          /* 20px */
-  opacity:0;
-  transform:translateY(10px);
-  transition:opacity .35s, transform .35s;
-}
-.feature-list li.reveal{ opacity:1; transform:translateY(0); }
+      <!-- LIST 1 -->
+      <ul class="feature-list">
+        <li>
+          <!-- Thermometer (outline) -->
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Feather-like thermometer -->
+            <path d="M14 14.76V5a2 2 0 0 0-4 0v9.76A4 4 0 1 0 14 14.76z"/>
+          </svg>
+          <span class="feature-text">End-to-end temperature control and auditability.</span>
+        </li>
 
-/* inline outline SVG icons (all teal by default) */
-.feature-list .feature-icon{
-  width:16px; height:16px; stroke-width:2; flex-shrink:0; margin:0;
-  color: var(--inv-teal);
-  transition: transform .25s ease, color .25s ease, filter .25s ease;
-}
+        <li>
+          <!-- Check-circle (outline) -->
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span class="feature-text">Validated processes aligned to regulatory requirements.</span>
+        </li>
+      </ul>
 
-.feature-list .feature-text{
-  font-size:1rem;          /* 20px */
-  line-height:1.6;
-  display:block;
-}
+      <h3 class="sub-heading">State-of-the-Art Infrastructure</h3>
+      <p>
+        With state-of-the-art warehousing and IT infrastructure, we maintain
+        <strong>full operational control</strong>, offering complete
+        <strong>visibility</strong> and <strong>precision</strong> across the supply chain.
+      </p>
 
-/* hover effect: icon glow + pop */
-.feature-list li:hover .feature-icon {
-  transform: scale(1.25);
-  color: var(--lime);
-  filter: drop-shadow(0 0 4px rgba(190,242,28,.45));
-}
+      <!-- LIST 2 -->
+      <ul class="feature-list">
+        <li>
+          <!-- Target / multi-ring (outline) -->
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+          <span class="feature-text">Real-time tracking and transparent reporting.</span>
+        </li>
+        <li>
+          <!-- Integrated links (outline) -->
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 7h3a5 5 0 0 1 0 10h-3"/>
+            <path d="M9 17H6A5 5 0 0 1 6 7h3"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          <span class="feature-text">Integrated systems that reduce risk and lead time.</span>
+        </li>
+      </ul>
 
-/* reveal nicety for SVGs */
-.feature-list li.reveal svg{ animation:iconPop .38s cubic-bezier(.2,.7,.3,1.2); }
-@keyframes iconPop{ 0%{transform:scale(.85);} 60%{transform:scale(1.08);} 100%{transform:scale(1);} }
+      <h3 class="sub-heading">Patient & Partner Programs</h3>
+      <p>
+        Inservio brings extensive expertise in managing
+        <strong>early access programs</strong>, <strong>patient support services</strong>,
+        and <strong>clinical sample programs</strong> — helping bring innovative therapies to patients faster.
+      </p>
 
-/* CONTACT FORM */
-.contact{ padding:72px 20px; background:#f7f8f9; }
-.contact .container{
-  max-width:980px; margin:0 auto; background:#fff; border-radius:16px;
-  box-shadow:0 8px 26px rgba(0,0,0,.07); padding:32px;
-}
-.contact h2{ margin:0 0 16px; font-size:1.4rem; font-weight:700; color:#000; } /* ~28px */
-form{
-  display:grid; grid-template-columns:1fr 1fr; gap:16px 20px;
-}
-.full{ grid-column:1/-1; }
-label{ display:block; font-size:.8rem; color:#444; margin-bottom:8px; } /* ~16px */
-input, select, textarea{
-  width:100%; padding:12px 14px; border:1px solid #e2e3e6; border-radius:10px;
-  font-family:'Poppins',sans-serif; font-size:.9rem; color:#111; background:#fff;
-  outline:none; transition:border .15s, box-shadow .15s;
-}
-input:focus, select:focus, textarea:focus{
-  border-color:var(--inv-teal); box-shadow:0 0 0 3px rgba(9,130,118,.12);
-}
-textarea{ min-height:150px; resize:vertical; }
-.checkbox{ display:flex; align-items:center; gap:10px; font-size:.9rem; color:#333; }
-.checkbox input{ width:auto; }
-.submit-btn{
-  background:var(--inv-teal); color:#fff; border:0; padding:14px 20px; border-radius:12px;
-  font-weight:600; cursor:pointer; transition:transform .15s, background .15s, box-shadow .15s;
-  box-shadow:0 6px 16px rgba(9,130,118,.25);
-}
-.submit-btn:hover{ background:#06685e; transform:translateY(-1px); }
+      <!-- LIST 3 -->
+      <ul class="feature-list">
+        <li>
+          <!-- Seamless coordination / share graph (outline) -->
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          <span class="feature-text">Seamless coordination between manufacturers, clinics, and patients.</span>
+        </li>
+        <li>
+          <!-- Shield (outline) -->
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+          </svg>
+          <span class="feature-text">Carefully governed processes to accelerate access to therapy.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-/* CONTACT BY STATE */
-.contact-section{
-  background:#fff; padding:32px 24px; border-top:6px solid var(--lime); border-bottom:4px solid var(--inv-teal);
-  max-width:900px; margin:48px auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.05);
-}
-.contact-section h2{
-  font-size:1.9rem; color:#4B4B4B; margin-bottom:22px; border-left:8px solid var(--neutral);
-  padding-left:12px; letter-spacing:.5px; font-weight:700;
-}
-.dot-selectors{ display:flex; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
-.dot-option{
-  flex:1; min-width:120px; text-align:center; background:var(--neutral); color:#fff;
-  padding:10px 16px; border-radius:50px; cursor:pointer; border:2px solid transparent;
-  transition:all .3s; font-size:.95rem;
-}
-.dot-option:hover{ background:var(--lime); color:#000; }
-.dot-option.active{ border-color:var(--inv-teal); background:var(--lime); color:#000; }
-.phone-display{
-  font-size:1.3rem; color:#333; opacity:0; transform:translateY(8px);
-  transition:opacity .3s, transform .3s; text-align:center;
-}
-.phone-display.visible{ opacity:1; transform:translateY(0); }
-.phone-display a{ color:#1c1c1c; text-decoration:none; border-bottom:2px dotted var(--neutral); padding-bottom:4px; transition:color .25s; }
-.phone-display a:hover{ color:var(--lime); }
+  <!-- CONTACT FORM -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Get in touch today</h2>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="visually-hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-/* UTILITIES */
-.visually-hidden{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+        <div>
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+        </div>
 
-/* =========================
-   RESPONSIVE (Mobile-first)
-   ========================= */
-@media (max-width: 900px){
-  .navbar{ padding:16px 24px; }
-  .nav-links{ gap:12px; }
-  .hero{ height:64vh; }
-  .content--engaging{ padding:36px 20px; margin:24px auto; }
-  .copy{ max-width: 92%; }
-  form{ grid-template-columns:1fr; }
-}
+        <div>
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last name">
+        </div>
 
-@media (max-width: 640px){
-  body{ font-size:18px; }                /* scale base down slightly on small screens */
-  .nav-links{ width:100%; justify-content:flex-start; }
-  .nav-links a{ font-size:.95rem; }      /* ~17px */
-  .hero{ height:56vh; min-height:360px; }
-  .hero-text{ font-size:clamp(1.05rem,5vw,1.35rem); max-width:64ch; }
-  .content--engaging{ padding:28px 18px; }
-  .sub-heading{ font-size:1rem; }
-  .content--engaging p{ font-size:.95rem; }
-  .feature-list li{ grid-template-columns:14px 1fr; column-gap:10px; margin-bottom:12px; }
-  .feature-list .feature-icon{ width:14px; height:14px; }
-  .dot-selectors{ gap:10px; }
-  .dot-option{ padding:10px 14px; font-size:.9rem; }
-  .contact-section{ margin:36px auto; }
-}
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
 
-/* REDUCED MOTION */
-@media (prefers-reduced-motion:reduce){
-  .hero-text{ animation:none; opacity:1; transform:none; }
-  .feature-list li{ transition:none; opacity:1; transform:none; }
-  .feature-list li.reveal svg{ animation:none; }
-}
+        <div>
+          <label for="enquiry">Enquiry type</label>
+          <select id="enquiry" name="enquiry" required>
+            <option value="" selected disabled>Select an option</option>
+            <option>Ophthalmology</option>
+            <option>Invoice</option>
+            <option>Clinic</option>
+            <option>B2B/Partner</option>
+            <option>Other</option>
+          </select>
+        </div>
 
-/* Payment tiles: micro-interactions */
-.payment-card{
-  position: relative;
-  cursor: pointer;
-  transition:
-    transform .16s ease,
-    box-shadow .28s ease,
-    border-color .22s ease,
-    background .22s ease,
-    filter .22s ease;
-  /* keeps the content centered while animating */
-  will-change: transform, box-shadow, border-color, background, filter;
-  border:1px solid #e8e8ec; border-radius:14px; padding:18px; text-align:center;
-}
+        <div class="full">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+        </div>
 
-/* subtle hover lift + glow */
-.payment-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(14, 165, 163, .20);
-  border-color: var(--accent);
-  filter: saturate(1.03);
-}
+        <div class="full checkbox">
+          <input type="checkbox" id="confirmEmail" name="confirmEmail">
+          <label for="confirmEmail">Send me a confirmation email</label>
+        </div>
 
-/* keyboard focus (accessible) */
-.payment-card:focus-visible{
-  outline: 0;
-  transform: translateY(-6px);
-  box-shadow:
-    0 0 0 3px #fff,
-    0 0 0 6px rgba(198, 251, 65, .85),
-    0 16px 42px rgba(14,165,163,.18);
-  border-color: var(--accent);
-}
+        <div class="full submit-wrap">
+          <button type="submit" class="submit-btn">Submit enquiry</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-/* pressed state */
-.payment-card:active{
-  transform: translateY(-2px);
-}
+  <!-- CONTACT BY STATE -->
+  <section class="contact-section" aria-label="Contact by State">
+    <h2>Contact by State</h2>
+    <div class="dot-selectors">
+      <button class="dot-option" data-state="NSW">NSW / ACT</button>
+      <button class="dot-option" data-state="VIC">VIC / TAS</button>
+      <button class="dot-option" data-state="QLD">QLD</button>
+      <button class="dot-option" data-state="SA">SA</button>
+      <button class="dot-option" data-state="WA">WA</button>
+    </div>
+    <div id="phoneDisplay" class="phone-display" aria-live="polite"></div>
+  </section>
 
-/* optional "selected" style
+  <!-- Scripts -->
+  <script>
+    // Bullet reveal
+    const featureItems = document.querySelectorAll('.feature-list li');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    featureItems.forEach(li => io.observe(li));
+
+    // Contact by State
+    const phoneMap = {
+      'NSW': '(02)-9997-3941',
+      'VIC': '(03)-8689-5530',
+      'QLD': '(07)-3348-7640',
+      'SA':  '(08)-6188-8330',
+      'WA':  '(08)-6188-8340'
+    };
+    const phoneDisplay = document.getElementById('phoneDisplay');
+    document.querySelectorAll('.dot-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.dot-option').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const number = phoneMap[btn.dataset.state];
+        phoneDisplay.innerHTML = number ? `<a href="tel:${number.replace(/[^0-9]/g, '')}">${number}</a>` : '';
+        phoneDisplay.classList.toggle('visible', !!number);
+      });
+    });
+  </script>
+</body>
+</html>
