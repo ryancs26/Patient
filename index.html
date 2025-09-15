@@ -42,21 +42,37 @@
     </div>
   </section>
 
-  <!-- Patient information text block -->
-<section class="content--engaging" id="patient-info">
-  <div class="copy">
-    <h2 class="sub-heading">For Patients</h2>
-    <p>
-      Inservio was established in 2007 when intravitreal injection treatment options for patients by Ophthalmologists required special handling and now represents the gold standard for cold chain medication management to ophthalmology clinics.
-    </p>
-    <p>
-      Inservio acts as the agent for the patient arranging the medication to be dispensed by a pharmacy and delivered to your clinic in time for your appointment.
-    </p>
-    <p>
-      Our service ensures that you do not need to collect your medication from a local pharmacy, and you do not have to worry about transporting the refrigerated medications to your appointment.
-    </p>
+ <!-- Patient information card -->
+<section class="patient-info" id="patient-info" aria-labelledby="patient-info-heading">
+  <div class="patient-info__inner">
+    <div class="patient-info__icon" aria-hidden="true">
+      <!-- simple inline SVG icon -->
+      <svg viewBox="0 0 24 24" width="36" height="36" role="img" focusable="false" aria-hidden="true">
+        <path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 2a7 7 0 100 14 7 7 0 000-14zm0 3.25a3.25 3.25 0 110 6.5 3.25 3.25 0 010-6.5zM12 15c2.485 0 4.5 1.343 4.5 3v.75H7.5V18c0-1.657 2.015-3 4.5-3z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="patient-info__content">
+      <p class="patient-info__eyebrow">For ophthalmology patients</p>
+      <h2 id="patient-info-heading" class="patient-info__title">Patient Information</h2>
+
+      <p class="patient-info__lead">
+        We coordinate your medication from pharmacy to clinic—safely, on time, and without the hassle of transporting refrigerated items.
+      </p>
+
+      <ul class="patient-info__list" role="list">
+        <li>Medication arranged to be dispensed by a pharmacy.</li>
+        <li>Delivered directly to your clinic in time for your appointment.</li>
+        <li>No pickup required—no cold-chain transport worries for you.</li>
+      </ul>
+
+      <p class="patient-info__footnote">
+        Founded in 2007 when intravitreal injection treatments required specialised handling, Inservio is now the gold standard in cold-chain medication management for ophthalmology clinics.
+      </p>
+    </div>
   </div>
 </section>
+
 
   <!-- CONTACT BY STATE -->
   <section class="contact-section" aria-label="Contact by State">
