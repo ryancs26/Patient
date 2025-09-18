@@ -140,7 +140,6 @@ textarea{ min-height:150px; resize:vertical; }
    ========================= */
 :root{
   --card-bg:#ffffff;
-  --accent:#0e7b86;                 /* teal */
   --accent-soft:rgba(14,123,134,0.10);
   --text:#142028;
   --muted:#5a6a75;
