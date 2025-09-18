@@ -398,3 +398,55 @@ textarea{ min-height:150px; resize:vertical; }
   line-height: 1.55;
 }
 
+/* NAVBAR (aligned with previous theme) */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background:#fff;
+  border-bottom: none;   /* the slim lime bar sits below instead */
+  padding: 0;            /* row handles the inner spacing */
+}
+
+.navbar .row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 30px;
+  gap:12px;
+}
+
+.brand img{
+  height:34px;
+  width:auto;
+  display:block;
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+}
+
+.nav-links a{
+  text-decoration:none;      /* remove underlines */
+  font-weight:700;
+  font-size:1rem;
+  color:#000;
+  transition:color .25s ease;
+}
+
+.nav-links a:hover{
+  color:var(--lime);
+}
+
+/* slim lime divider under the header */
+.lime-bar{
+  height:4px;
+  background:var(--accent);
+}
+
+@media (max-width: 900px){
+  .navbar .row{ padding:10px 20px; }
+  .nav-links{ gap:14px; }
+}
