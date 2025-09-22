@@ -5,114 +5,198 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inservio</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Poppins (same family you’re using) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="main.css" />
+  <style>
+    :root{
+      --lime:#BEF21C;
+      --teal:#098276;
+      --ink:#0b0f11;
+      --muted:#667085;
+      --card:#ffffff;
+      --ring: rgba(17,24,39,.08);
+    }
+
+    /* Base */
+    *{ box-sizing:border-box }
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      color:var(--ink);
+      background:#fff;
+    }
+
+    /* Layout container */
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding: clamp(18px, 4vw, 36px);
+    }
+
+    /* === SPLIT HERO (like your screenshot) === */
+    .split-hero{
+      padding: clamp(18px, 3vw, 28px) 0;
+    }
+    .split-hero__grid{
+      display:grid;
+      grid-template-columns: 1.15fr 1fr; /* text a bit wider than media */
+      gap: clamp(22px, 4vw, 48px);
+      align-items:center;
+    }
+
+    /* Left content */
+    .split-hero__eyebrow{
+      font-size:.95rem;
+      font-weight:700;
+      letter-spacing:.12em;
+      color:var(--teal);
+      margin:0 0 .4rem;
+      text-transform:uppercase;
+    }
+    .split-hero__title{
+      margin:0 0 .8rem;
+      font-weight:800;
+      line-height:1.05;
+      font-size: clamp(2rem, 6vw, 4.2rem); /* big heading */
+    }
+    .split-hero__subtitle{
+      margin:0 0 1.4rem;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color:var(--muted);
+      max-width: 58ch;
+    }
+
+    /* Buttons */
+    .btn-row{ display:flex; gap:16px; flex-wrap:wrap }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 14px 22px;
+      border-radius: 18px;
+      font-weight:700;
+      text-decoration:none;
+      border:2px solid transparent;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    .btn:focus-visible{
+      outline:0;
+      box-shadow:
+        0 0 0 3px #fff,
+        0 0 0 6px rgba(190,242,28,.9),
+        0 14px 32px rgba(0,0,0,.12);
+      transform: translateY(-1px);
+    }
+    .btn--teal{
+      background:var(--teal);
+      color:#fff;
+    }
+    .btn--teal:hover{ background:#06685e }
+    .btn--lime{
+      background:var(--lime);
+      color:#0b221d;
+    }
+    .btn--lime:hover{ filter: brightness(.95) }
+
+    /* Right media card (video) */
+    .split-hero__media{
+      background:var(--card);
+      border-radius: 28px;
+      overflow:hidden;                     /* mask video corners */
+      box-shadow:
+        0 24px 60px rgba(17, 24, 39, 0.08),
+        0 1px 0 var(--ring) inset;
+      position:relative;
+      aspect-ratio: 16 / 9;                /* keep a nice shape */
+      min-height: 280px;
+      display:grid; place-items:center;
+    }
+    .split-hero__media video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* Small overlay for subtle depth (optional) */
+    .split-hero__media::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.04) 40%, transparent 100%);
+      pointer-events:none;
+    }
+
+    /* Responsive stack */
+    @media (max-width: 900px){
+      .split-hero__grid{
+        grid-template-columns:1fr;
+      }
+      .split-hero__media{ order:2 }
+    }
+
+    /* Respect reduced motion: disable autoplay */
+    @media (prefers-reduced-motion: reduce){
+      .split-hero__media video{ animation:none }
+    }
+  </style>
 </head>
 <body>
-  
- <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="row">
-      <div class="brand"><img src="Inservio-logo.svg" alt="Inservio logo" /></div>
-      <nav class="nav-links">
-        <a href="https://12345rmain.netlify.app/">Home</a>
-        <a href="https://123456main.netlify.app/">Partners</a>
-        <a href="https://1234567main.netlify.app/">Clinics</a>
-        <a href="https://bpat1234.netlify.app/">Patients</a>
-        <a href="https://1238main.netlify.app/">Pay Invoice</a>
-        <a href="placeholder">Privacy Policy</a>
-        <a href="https://abus1234.netlify.app/">About Us</a>
-      </nav>
+
+  <header class="split-hero">
+    <div class="container">
+      <div class="split-hero__grid">
+        <!-- Left: text + actions -->
+        <div class="split-hero__content">
+          <p class="split-hero__eyebrow">For clinics</p>
+          <h1 class="split-hero__title">Learn about how we assist clinics</h1>
+          <p class="split-hero__subtitle">
+            We take care of the administrative workload, enabling you to dedicate your time and attention to patient care
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn--teal" href="#contact" aria-label="Contact us">Contact us</a>
+            <a class="btn btn--lime" href="#about" aria-label="About us">About us</a>
+          </div>
+        </div>
+
+        <!-- Right: rounded video card -->
+        <figure class="split-hero__media" aria-label="Clinic support overview video">
+          <video id="clinicHeroVideo" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg">
+            <!-- WebM first (if you have one), then MP4 -->
+            <source src="pv2.webm?v=1" type="video/webm" />
+            <source src="pv2.mp4?v=1" type="video/mp4" />
+            Your browser doesn’t support the video tag.
+          </video>
+        </figure>
+      </div>
     </div>
-    <div class="lime-bar" aria-hidden="true"></div>
   </header>
 
-  <main id="home">
-
-  <!-- Patient information card -->
-  <section class="patient-info" id="patient-info" aria-labelledby="patient-info-heading">
-    <div class="patient-info__inner">
-      <div class="patient-info__icon" aria-hidden="true">
-        <!-- simple inline SVG icon -->
-        <svg viewBox="0 0 24 24" width="36" height="36" role="img" focusable="false" aria-hidden="true">
-          <path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 2a7 7 0 100 14 7 7 0 000-14zm0 3.25a3.25 3.25 0 110 6.5 3.25 3.25 0 010-6.5zM12 15c2.485 0 4.5 1.343 4.5 3v.75H7.5V18c0-1.657 2.015-3 4.5-3z" fill="currentColor"/>
-        </svg>
-      </div>
-
-      <div class="patient-info__content">
-        <p class="patient-info__eyebrow">For ophthalmology patients</p>
-        <h2 id="patient-info-heading" class="patient-info__title">Patient Information</h2>
-
-        <!-- 🔑 Critical wording appears first -->
-        <p class="patient-info__lead">
-          Inservio acts as the agent for the patient arranging the medication to be dispensed by a pharmacy 
-          and delivered to your clinic in time for your appointment. Our service ensures that you do not need 
-          to collect your medication from a local pharmacy, and you do not have to worry about transporting 
-          the refrigerated medications to your appointment.
-        </p>
-
-        <ul class="patient-info__list" role="list">
-          <li>Medication arranged to be dispensed by a pharmacy.</li>
-          <li>Delivered directly to your clinic in time for your appointment.</li>
-          <li>No pickup required—no cold-chain transport worries for you.</li>
-        </ul>
-
-        <p class="patient-info__footnote">
-          Founded in 2007 when intravitreal injection treatments required specialised handling, 
-          Inservio is now the gold standard in cold-chain medication management for ophthalmology clinics.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT BY STATE -->
-  <section class="contact-section" aria-label="Contact by State">
-    <h2>Contact by State</h2>
-    <div class="dot-selectors">
-      <button class="dot-option" data-state="NSW">NSW / ACT</button>
-      <button class="dot-option" data-state="VIC">VIC / TAS</button>
-      <button class="dot-option" data-state="QLD">QLD</button>
-      <button class="dot-option" data-state="SA">SA</button>
-      <button class="dot-option" data-state="WA">WA</button>
-    </div>
-    <div id="phoneDisplay" class="phone-display" aria-live="polite"></div>
-  </section>
-
-  <!-- Scripts -->
   <script>
-    // Bullet reveal
-    const featureItems = document.querySelectorAll('.feature-list li');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.25 });
-    featureItems.forEach(li => io.observe(li));
+    // Graceful fallback: if autoplay is blocked or errors, show controls.
+    (function () {
+      const v = document.getElementById('clinicHeroVideo');
+      if (!v) return;
 
-    // Contact by State
-    const phoneMap = {
-      'NSW': '(02)-9997-3941',
-      'VIC': '(03)-8689-5530',
-      'QLD': '(07)-3348-7640',
-      'SA':  '(08)-6188-8330',
-      'WA':  '(08)-6188-8340'
-    };
-    const phoneDisplay = document.getElementById('phoneDisplay');
-    document.querySelectorAll('.dot-option').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.dot-option').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const number = phoneMap[btn.dataset.state];
-        phoneDisplay.innerHTML = number ? `<a href="tel:${number.replace(/[^0-9]/g, '')}">${number}</a>` : '';
-        phoneDisplay.classList.toggle('visible', !!number);
+      // Respect reduced motion: pause & show controls.
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        v.removeAttribute('autoplay');
+        v.pause();
+        v.setAttribute('controls', '');
+      }
+
+      v.addEventListener('loadeddata', () => {
+        v.play().catch(() => v.setAttribute('controls',''));
       });
-    });
+      v.addEventListener('error', () => {
+        // If the first source fails, at least allow manual playback
+        v.setAttribute('controls','');
+        console.warn('Hero video failed to load/play.');
+      });
+    })();
   </script>
+
 </body>
 </html>
