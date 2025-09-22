@@ -32,19 +32,26 @@
 
   <main id="home">
 
- <!-- HERO WITH YOUR NEW VIDEO -->
-<section class="hero" aria-label="Hero">
-  <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
-    <source src="pv2.mp4?v=1" type="video/mp4" />
-    Your browser doesn’t support the video tag.
-  </video>
-  <div class="hero-inner">
-    <div class="hero-text">
-      Inservio delivers <span class="highlight">bespoke</span>, end-to-end solutions for the
-      <span class="highlight">pharmaceutical industry</span> and allied partners.
-    </div>
-  </div>
-</section>
+ /* HERO */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px;padding:60px 40px;border-bottom:1px solid #eee}
+    .hero h1{font-size:clamp(2rem,4.6vw,3rem);line-height:1.15;margin:0 0 12px;font-weight:700}
+    .hero p{margin:0 0 20px;color:#6d6e75}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-grid;place-items:center;padding:14px 18px;border-radius:14px;font-weight:700;border:1px solid transparent;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+    .btn.teal{background:var(--inv-teal);color:#fff}
+    .btn.teal:hover{background:#06685e}
+    .btn.lime{background:var(--lime);color:#000}
+    .btn.ghost{background:#fff;border-color:#e6e7ea;color:#111}
+    .hero-media video{width:100%;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+
+    /* No underlines on buttons/nav */
+    .btn,
+    .btn:visited,
+    .btn:hover,
+    .btn:focus,
+    .nav-links a,
+    .nav-links a:hover,
+    .nav-links a:focus { text-decoration: none !important; }
 
   <!-- Patient information card -->
   <section class="patient-info" id="patient-info" aria-labelledby="patient-info-heading">
