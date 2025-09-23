@@ -17,13 +17,17 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* HERO VIDEO */
+/* height auto-calculates from width at 16:9, so the whole video fits */
+:root { --nav-h: 80px; } /* adjust if your navbar is taller/shorter */
+
 .hero{
   position: relative;
   width: 100%;
-  height: 72vh;          /* change to 100vh if you want full screen */
-  min-height: 420px;
+  aspect-ratio: 16 / 9;               /* match 1280×720 */
+  max-height: calc(100vh - var(--nav-h));
+  margin: 0 auto;
   overflow: hidden;
+  background: #000;                    /* behind any letterboxing */
 }
 
 .hero video{
@@ -31,7 +35,7 @@ body{
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* fill and crop to cover */
+  object-fit: contain;                 /* show entire frame (no crop) */
   display: block;
 }
 
