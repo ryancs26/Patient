@@ -4,6 +4,77 @@
   --neutral:#aaabb1;
 }
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inservio — About Us</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================
+       Tokens & Base
+       ========================= */
+    :root{
+      --lime:#BEF21C;
+      --inv-teal:#098276;
+      --neutral:#aaabb1;
+
+      --accent: var(--inv-teal);
+      --accent-soft: rgba(14,123,134,.10);
+      --text:#142028;
+      --muted:#6b7a86;
+      --ring: rgba(17,24,39,.08);
+      --card-bg:#ffffff;
+
+      --font-sans:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --page-pad: clamp(18px,4vw,36px);
+      --max-w: 1100px;
+    }
+
+    html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text); font-family:var(--font-sans);
+      font-weight:400; line-height:1.65; background:#fff;
+    }
+
+    /* =========================
+       NAVBAR
+       ========================= */
+    .navbar{
+      position: sticky; top: 0; z-index: 1000; background:#fff;
+    }
+    .navbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:10px 30px;
+    }
+    .brand{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; }
+    .brand img{ height:34px; width:auto; display:block; }
+    .nav-links{ display:flex; flex-wrap:wrap; gap:22px; }
+    .nav-links a{
+      text-decoration:none; font-weight:700; font-size:1rem; color:#000; transition:color .25s ease;
+    }
+    .nav-links a:hover{ color: var(--lime); }
+    .nav-links a[aria-current="page"]{
+      color: var(--inv-teal);
+      border-bottom: 2px solid var(--lime);
+      padding-bottom: 2px;
+    }
+    .lime-bar{ height:4px; background: var(--lime); }
+
+    /* Mobile-friendly scroll for nav */
+    @media (max-width: 900px){
+      .navbar .row{ padding:10px 16px; }
+      .nav-links{
+        gap:12px; overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch;
+      }
+      .nav-links::-webkit-scrollbar{ display:none; }
+    }
+
 /* Base + Reset */
 *{ box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -15,6 +86,7 @@ body{
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+
 
 }
 
