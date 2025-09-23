@@ -39,8 +39,10 @@
   </video>
 </section>
     
-    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
-
+<script>
+  const v = document.getElementById('heroVideo');
+  v?.play().catch(() => v.setAttribute('controls',''));
+</script>
     
   <!-- Patient information card -->
   <section class="patient-info" id="patient-info" aria-labelledby="patient-info-heading">
