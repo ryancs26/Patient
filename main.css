@@ -17,28 +17,24 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* HERO — full frame, no bars, no crop */
+/* keep your current hero height */
 .hero{
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;           /* match 1280×720 */
-  max-height: 72vh;               /* keep it banner-ish; tweak as you like */
+  height: 72vh;
+  min-height: 420px;
   overflow: hidden;
-  background: #000;               /* behind initial paint */
 }
 
+/* show full frame, no crop, bars are white */
 .hero video{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;            /* show entire frame, no crop */
+  object-fit: contain;      /* keep full video visible */
+  background: #fff;         /* <<< bars color */
   display: block;
-}
-
-/* Fallback for very old browsers without aspect-ratio */
-@supports not (aspect-ratio: 1 / 1){
-  .hero{ height: 0; padding-top: 56.25%; } /* 9/16 = 56.25% */
 }
 
 }
