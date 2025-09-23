@@ -17,16 +17,14 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* height auto-calculates from width at 16:9, so the whole video fits */
-:root { --nav-h: 80px; } /* adjust if your navbar is taller/shorter */
-
-/* HERO — fill the banner, no black bars */
+/* HERO — full frame, no bars, no crop */
 .hero{
   position: relative;
   width: 100%;
-  height: 72vh;          /* keep your banner height */
-  min-height: 420px;
+  aspect-ratio: 16 / 9;           /* match 1280×720 */
+  max-height: 72vh;               /* keep it banner-ish; tweak as you like */
   overflow: hidden;
+  background: #000;               /* behind initial paint */
 }
 
 .hero video{
@@ -34,10 +32,15 @@ body{
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;      /* <-- fills, no black sides */
-  object-position: 50% 50%; /* tweak focus, e.g. 50% 35% */
+  object-fit: contain;            /* show entire frame, no crop */
   display: block;
-  background: transparent;
+}
+
+/* Fallback for very old browsers without aspect-ratio */
+@supports not (aspect-ratio: 1 / 1){
+  .hero{ height: 0; padding-top: 56.25%; } /* 9/16 = 56.25% */
+}
+
 }
 
 /* CONTENT WRAPPER (generic) */
