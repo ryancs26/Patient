@@ -17,20 +17,21 @@ body{
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* HERO (bare video) */
+/* HERO VIDEO */
 .hero{
   position: relative;
   width: 100%;
-  height: 72vh;      /* change to 100vh if you want full screen */
+  height: 72vh;          /* change to 100vh if you want full screen */
   min-height: 420px;
   overflow: hidden;
 }
+
 .hero video{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;     /* fill and crop to cover */
   display: block;
 }
 
