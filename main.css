@@ -15,12 +15,7 @@ body{
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-}
 
-/* HERO container with soft page gradient + spacing */
-.hero{
-  padding: 24px 16px;                      /* space around the card */
-  background: linear-gradient(180deg,#fff 0%, #f7f9fb 100%);
 }
 
 /* White card to match your Patient Information style */
