@@ -280,6 +280,60 @@ textarea{ min-height:150px; resize:vertical; }
   @keyframes patientFade{ to{ opacity:1; transform:translateY(0);} }
 }
 
+:root{
+  --lime:#BEF21C;
+  --inv-teal:#098276;
+  --neutral:#aaabb1;
+  --text:#4B4B4B;
+  --card-shadow: 0 18px 42px rgba(0,0,0,.08);
+}
+
+/* Card shell */
+.contact-card{
+  background:#fff;
+  border-radius:18px;
+  box-shadow: var(--card-shadow);
+  padding:28px 28px 24px;
+  max-width:1100px;
+  margin:32px auto;
+  border-top:6px solid var(--lime);
+  border-bottom:6px solid var(--inv-teal);
+}
+
+/* Heading with grey bar */
+.contact-card__title{
+  margin:0 0 20px;
+  color:var(--text);
+  font-size:clamp(1.4rem,3vw,2rem);
+  font-weight:800;
+  letter-spacing:.2px;
+  position:relative;
+  padding-left:18px;
+}
+.contact-card__title::before{
+  content:"";
+  position:absolute;
+  left:0; top:.15em; bottom:.15em;
+  width:8px;
+  border-radius:4px;
+  background:#c9cbd1; /* subtle grey bar */
+}
+
+/* Buttons row */
+.contact-card__buttons{
+  display:flex; flex-wrap:wrap;
+  gap:18px; margin-bottom:16px;
+}
+.state-btn{
+  appearance:none; border:2px solid transparent;
+  background: var(--neutral);
+  color:#fff; font-weight:700; letter-spacing:.5px;
+  padding:12px 22px; border-radius:999px; cursor:pointer;
+  transition: all .2s ease;
+}
+.state-btn:hover{ filter:
+
+
 /* =========================
    Responsive (site-wide)
    ========================= */
@@ -451,6 +505,7 @@ textarea{ min-height:150px; resize:vertical; }
   .navbar .row{ padding:10px 20px; }
   .nav-links{ gap:14px; }
 }
+
 
 /* =========================
    MOBILE UI TUNE-UPS
