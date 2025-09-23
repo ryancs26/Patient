@@ -20,14 +20,13 @@ body{
 /* height auto-calculates from width at 16:9, so the whole video fits */
 :root { --nav-h: 80px; } /* adjust if your navbar is taller/shorter */
 
-/* HERO — same banner height as before, video scaled to fit */
+/* HERO — fill the banner, no black bars */
 .hero{
   position: relative;
   width: 100%;
-  height: 72vh;          /* your previous banner height */
+  height: 72vh;          /* keep your banner height */
   min-height: 420px;
   overflow: hidden;
-  background: #000;      /* bars color if aspect ratios differ */
 }
 
 .hero video{
@@ -35,8 +34,10 @@ body{
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* <- key: scale down to fit, no crop */
+  object-fit: cover;      /* <-- fills, no black sides */
+  object-position: 50% 50%; /* tweak focus, e.g. 50% 35% */
   display: block;
+  background: transparent;
 }
 
 /* CONTENT WRAPPER (generic) */
