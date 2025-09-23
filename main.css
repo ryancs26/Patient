@@ -297,6 +297,11 @@ textarea{ min-height:150px; resize:vertical; }
   form{ grid-template-columns:1fr; }
 }
 
+/* Navbar stripe = lime */
+.navbar .lime-bar{
+  background: var(--lime);   /* was var(--accent) */
+}
+
 @media (max-width: 640px){
   body{ font-size:18px; }
   .nav-links{ width:100%; justify-content:flex-start; }
