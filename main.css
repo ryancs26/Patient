@@ -451,3 +451,95 @@ textarea{ min-height:150px; resize:vertical; }
   .navbar .row{ padding:10px 20px; }
   .nav-links{ gap:14px; }
 }
+
+/* =========================
+   MOBILE UI TUNE-UPS
+   Paste at end of main.css
+   ========================= */
+
+/* --- Compact tablet tweaks --- */
+@media (max-width: 900px){
+  .navbar .row{ padding: 10px 16px; }
+  .brand img{ height: 28px; }
+
+  /* Make nav links horizontally scrollable (no hamburger needed) */
+  .nav-links{
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px 0 8px;
+    margin: 0 -16px;
+    padding-left: 16px;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 16px), transparent);
+  }
+  .nav-links::-webkit-scrollbar{ display: none; }
+  .nav-links a{
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: .95rem;
+  }
+
+  /* Hero card: soften radius/shadow a bit on mobile */
+  .hero{ padding: 16px 12px; }
+  .hero-card{
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(17,24,39,.10), 0 1px 0 rgba(17,24,39,.06) inset;
+    max-width: 100%;
+  }
+
+  /* Patient info: slightly tighter spacing */
+  .patient-info{ padding: 32px 12px; }
+  .patient-info__inner{ padding: 16px; border-radius: 20px; }
+  .patient-info__title{ font-size: clamp(1.6rem, 5.4vw, 2.1rem); }
+  .patient-info__lead{ font-size: 1rem; padding: .9rem 1rem; }
+
+  /* Contact by State: switch to a neat grid */
+  .contact-section{ padding: 24px 16px; margin: 32px auto; }
+  .dot-selectors{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  .dot-option{ padding: 10px 12px; font-size: .95rem; }
+  .phone-display{ font-size: 1.15rem; }
+}
+
+/* --- Phone tweaks --- */
+@media (max-width: 640px){
+  /* keep banner height but ensure full frame fits; bars are white to match cards */
+  .hero-card{ aspect-ratio: 16 / 9; }
+  .hero-card video{
+    object-fit: contain;
+    background: #fff;
+  }
+
+  /* Bigger tap targets everywhere */
+  .nav-links a,
+  .dot-option,
+  .submit-btn{ min-height: 44px; }
+
+  /* Form: single column + comfy inputs */
+  form{ grid-template-columns: 1fr; gap: 12px; }
+  input, select, textarea{ font-size: 16px; padding: 12px 14px; } /* 16px avoids zoom on iOS */
+
+  /* Slightly smaller shadows to reduce paint on mobile GPUs */
+  .contact .container,
+  .hero-card,
+  .patient-info__inner{
+    box-shadow: 0 12px 28px rgba(17,24,39,.10), 0 1px 0 rgba(17,24,39,.06) inset;
+  }
+}
+
+/* Respect users who prefer less motion (keeps your existing animation, but disables it on request) */
+@media (prefers-reduced-motion: reduce){
+  .hero-card video{ animation: none; }
+  .hero-text{ animation: none; opacity: 1; transform: none; }
+  *{ scroll-behavior: auto; }
+}
+
+/* Optional: keep the navbar stripe lime only (in case earlier rules override) */
+.navbar .lime-bar{ background: var(--lime); }
+
